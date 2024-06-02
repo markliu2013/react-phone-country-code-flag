@@ -1,0 +1,32 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  background: rgba(0, 0, 0, 0.85);
+  font-family:
+    NeverMind,
+    Barlow,
+    system-ui,
+    -apple-system,
+    'PingFang SC',
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    'Microsoft YaHei',
+    '微软雅黑',
+    '黑体',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    Arial,
+    sans-serif;
+  font-size: 1.4rem;
+}
+input {
+  all: unset;
+  color: #fff;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.1);
+}
