@@ -74,6 +74,37 @@ const PhoneCountrySelect = () => {
     setCountryList(newCountryList);
   }, [searchText]);
 
+  // flag icon lazy load
+  const [flagLoaded, setFlagLoaded] = useState(false);
+  function flagLazyLoad() {
+    // should run only once.
+    if (flagLoaded) return;
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const image = entry.target.querySelector('.phone-country-select-list-flag');
+          const data_src = image.getAttribute('data-src');
+          image.setAttribute('src', data_src);
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const observer = new IntersectionObserver(callback, {
+      root: document.querySelector('.phone-country-select-dropdown ul')
+    });
+    const images = document.querySelectorAll('.phone-country-select-dropdown ul li');
+    images.forEach((image) => {
+      observer.observe(image);
+    });
+    setFlagLoaded(true);
+  }
+
+  useEffect(() => {
+    if (isOpen) {
+      flagLazyLoad();
+    }
+  }, [isOpen]);
+
   return (
     <div className="phone-country-select-container">
       <div className="phone-country-select-selected" ref={countrySelectedRef}>
@@ -107,7 +138,7 @@ const PhoneCountrySelect = () => {
             >
               <img
                 className="phone-country-select-list-flag"
-                src={`flags/${item.countryCode}.svg`}
+                data-src={`flags/${item.countryCode}.svg`}
               />
               <span className="phone-country-select-list-name">{item.name}</span>
               <span className="phone-country-select-list-code">{item.code}</span>
