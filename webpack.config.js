@@ -40,8 +40,12 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         type: 'asset' // "asset/resource"
+      },
+      {
+        test: /\.svg/,
+        type: 'asset/resource'
       }
     ]
   }
