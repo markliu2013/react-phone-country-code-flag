@@ -1,0 +1,116 @@
+.phone-country-form-control {
+  display: flex;
+  align-items: center;
+}
+.phone-country-form-control label {
+  font-size: 1.4rem;
+  color: #fff;
+}
+.phone-country-required-asterisk {
+  color: #f00;
+}
+.phone-country-form-control-input {
+  display: flex;
+  align-items: stretch;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 450px;
+}
+.phone-country-form-control-input .phone-country-form-number-input {
+  padding-left: 10px;
+  color: #fff;
+}
+.phone-country-select-container {
+  position: relative;
+  background: rgba(0, 0, 0, 0.1);
+}
+.phone-country-select-selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.phone-country-select-selected img {
+  width: 35px;
+}
+.phone-country-select-selected-name {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.phone-country-select-selected-code {
+}
+.phone-country-select-dropdown {
+  position: absolute;
+  top: 100%;
+  z-index: 99;
+  background: #484848;
+  width: 297px;
+  padding: 16px 16px 0px 16px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.phone-country-select-dropdown.open {
+  display: block;
+}
+.phone-country-select-dropdown.closed {
+  display: none;
+}
+.phone-country-select-search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.phone-country-select-search img {
+  cursor: pointer;
+}
+.phone-country-select-dropdown .phone-country-select-search input {
+  width: 230px;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 0 0 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+.phone-country-select-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 320px;
+}
+.phone-country-select-dropdown ul:hover {
+  overflow-y: scroll;
+}
+.phone-country-select-dropdown ul li {
+  margin: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+.phone-country-select-dropdown ul li.show {
+  display: flex;
+}
+.phone-country-select-dropdown ul li.hide {
+  display: none;
+}
+.phone-country-select-dropdown ul li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.phone-country-select-list-flag {
+  width: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0.3;
+  border-radius: 3px;
+}
