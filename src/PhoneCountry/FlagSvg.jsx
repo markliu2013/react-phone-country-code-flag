@@ -5,10 +5,10 @@ const FlagSvg = ({ code }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const svgUrl = await import(`./flags/${code}.svg?raw`);
-      //  const response = await fetch(svgUrl.default);
-      // const content = await response.text();
-      setData(svgUrl.default);
+      const svgUrl = await import(`./flags/${code}.svg`);
+      const response = await fetch(svgUrl.default);
+      const content = await response.text();
+      setData(content);
     };
     fetchData().catch(console.error);
   }, [code]);

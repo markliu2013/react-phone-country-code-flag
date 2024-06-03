@@ -1,14 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'), // the bundle output path
-    filename: '[name].[contenthash].js',
-    chunkFilename: '[name].[contenthash].js',
-    clean: true
+    filename: 'main.js', // the name of the bundle
+    clean: true,
   },
   // import App from './App';
   resolve: {
@@ -44,60 +43,10 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/i,
         type: 'asset' // "asset/resource"
       },
-      // {
-      //   test: /\.svg/,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: 'images/[hash][ext][query]'
-      //   }
       {
-        test: /\.svg$/,
-        use: 'raw-loader'
+        test: /\.svg/,
+        type: 'asset/resource'
       }
-      // }
-      // {
-      //   test: /\.svg$/,
-      //   include: /.*_sprite\.svg/,
-      //   use: [
-      //     {
-      //       loader: 'svg-sprite-loader',
-      //       options: {
-      //         extract: true,
-      //         spriteFilename: 'svgSprite.svg' // 输出的文件名
-      //       }
-      //     }
-      //   ]
-      // }
     ]
-  },
-  // optimization: {
-  //   splitChunks: false,
-  //   runtimeChunk: false
-  // }
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all'
-  //   }
-  // }
-  // optimization: {
-  //   splitChunks: {
-  //     chunks(chunk) {
-  //       console.log(chunk)
-  //       return true;
-  //     }
-  //   }
-  // }
-
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        svg: {
-          test: /\.svg$/,
-          name: 'svg',
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
   }
 };
